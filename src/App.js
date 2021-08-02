@@ -25,12 +25,7 @@ function App() {
       <Route path='/team' component={Team}/>
       <Route path='/customers' component={Customers}/>
       <Route path='/contact' component={Contact}/>
-
-
-
     </Switch>
-
-
     </Router>
     </>
   );
