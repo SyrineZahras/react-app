@@ -7,6 +7,29 @@ import img2 from '../assests/2.jpg';
 import img3 from '../assests/3.jpg';
 
 
+const Teams = [
+    {
+        title: "Sana Riahi",
+        email: "sana.riahi@wyplay.com",
+        tel: "98-654-741",
+        address: "Ariana",
+        img: img1
+    },
+    {
+        title: "Nada Romdhani",
+        email: "sana.riahi@wyplay.com",
+        tel: "98-654-741",
+        address: "Sousse",
+        img: img2
+    },
+    {
+        title: "Ahmed Dridi",
+        email: "sana.riahi@wyplay.com",
+        tel: "98-654-741",
+        address: "Bizert",
+        img: img3
+    }
+]
 
 
 class Team extends Component {
@@ -14,7 +37,12 @@ class Team extends Component {
         return (
             <div className='container-fluid d-flex justify-content-center'>
                 <div className='row'>
-                    <div className='col-md-4'>
+                    {Teams.map((item, index) =>{
+                        return <div className='col-md-4' key={index}>
+                                    <Card imgsrc={item.img} title={item.title} parag={<div > Email: {item.email} <br></br>Tel: {item.tel} <br></br>Adresse: {item.address}</div>} />
+                                </div>
+                    })}
+                    {/*<div className='col-md-4'>
                         <Card imgsrc={img1} title="Sana Riahi" parag="Email:sana.riahi@wyplay.com
                                                                     Tel:98654741
                                                                     Adresse:Ariana" />
@@ -28,7 +56,7 @@ class Team extends Component {
                     <Card imgsrc={img3} title="Ahmed Dridi" parag="Email:ahmed.dridi@wyplay.com
                                                                    Tel:98932145
                                                                    Adresse:Bizerte"/>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
 
