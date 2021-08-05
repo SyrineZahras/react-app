@@ -1,11 +1,10 @@
 import React from 'react';
+import { Formik, Form } from 'formik';
+import { TextField } from './TextField';
+import * as Yup from 'yup';
 import '../App.css';
 import emailjs from 'emailjs-com';
 
-
-
-
-export default function Contact() {
 
   function sendEmail(e) {
     e.preventDefault();
@@ -19,17 +18,48 @@ export default function Contact() {
       e.target.reset()
   }
 
+
+
+
+
+export const Contact = () => {
+  const validate = Yup.object({
+    name: Yup.string()
+      .max(15, 'Must be 15 characters or less')
+      .required('Name is Required'),
+    email: Yup.string()
+      .email('Email is invalid')
+      .required('Email is required'),
+      message: Yup.string()
+      .max(45, 'Must be 45 characters or less')
+      .required('Message is required'),
+  })
   return (
-    <form className="contact-form" onSubmit={sendEmail}>
-          <h2> Contact us</h2>
-      <input type="hidden" name="contact_number" />
-      <label>Name</label>
-      <input type="text" name="from_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" />
-      <label>Message</label>
-      <textarea name="message" />
-      <input type="submit" value="Send" />
-    </form>
-  );
+    <Formik
+      initialValues={{
+        name: '',
+        email: '',
+        message: '',
+      }}
+      validationSchema={validate}
+      onSubmit={values => {
+        console.log(values)
+      }}
+    >
+      {formik => (
+        <div className="contact-form">
+          <h1 className="my-4 font-weight-bold .display-4" className="contact-form">Contact Us</h1>
+          <Form className="contact-form" >
+            <TextField label="Name" name="name" type="text" />
+            <TextField label="Email" name="email" type="email" />
+            <TextField label="Message" name="message" type="text" />
+            <button className="btn btn-dark mt-3" type="submit"> Submit </button>
+            <button className="btn btn-danger mt-3 ml-3" type="reset"> Reset</button>
+          </Form>
+        </div>
+      )}
+    </Formik>
+  )
 }
+
+export default Contact;

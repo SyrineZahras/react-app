@@ -18,14 +18,14 @@ const Teams = [
     {
         title: "Nada Romdhani",
         email: "sana.riahi@wyplay.com",
-        tel: "98-654-741",
+        tel: "98-250-644",
         address: "Sousse",
         img: img2
     },
     {
         title: "Ahmed Dridi",
         email: "sana.riahi@wyplay.com",
-        tel: "98-654-741",
+        tel: "98-984-127",
         address: "Bizert",
         img: img3
     }
