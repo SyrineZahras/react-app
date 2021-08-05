@@ -6,7 +6,7 @@ import '../App.css';
 import emailjs from 'emailjs-com';
 
 
-  function sendEmail(e) {
+function sendEmail(e) {
     e.preventDefault();
 
     emailjs.sendForm('service_grg125k', 'template_19ruejo', e.target, 'user_2WJp3NxrfSZ3fxOIIc44R')
