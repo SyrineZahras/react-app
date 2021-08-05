@@ -18,10 +18,6 @@ function sendEmail(e) {
       e.target.reset()
   }
 
-
-
-
-
 export const Contact = () => {
   const validate = Yup.object({
     name: Yup.string()
