@@ -3,20 +3,7 @@ import { Formik, Form } from 'formik';
 import { TextField } from './TextField';
 import * as Yup from 'yup';
 import '../App.css';
-import emailjs from 'emailjs-com';
 
-
-function sendEmail(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('service_grg125k', 'template_19ruejo', e.target, 'user_2WJp3NxrfSZ3fxOIIc44R')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset()
-  }
 
 export const Contact = () => {
   const validate = Yup.object({
